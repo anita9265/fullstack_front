@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import api from "./service/api";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 
 function Registerp() {
@@ -13,7 +13,7 @@ function Registerp() {
      useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await axios.get('http://localhost:3003/register');
+        const res = await api.get('/register');
         // setUsers(res.data);
         console.log("GET Data:", res.data);
       } catch (error) {
@@ -32,7 +32,7 @@ function Registerp() {
       return;
     }
       try {
-        const res = await axios.post('http://localhost:3003/register',{name,email,password,role});
+        const res = await api.post('/register',{name,email,password,role});
         // setUsers(res.data);
         console.log("GET Data:", res.data);
         alert("register successfully...")

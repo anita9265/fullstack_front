@@ -1,6 +1,7 @@
-import axios from "axios";
+
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import api from "./service/api";
 
 function Admin_dashboard() {
   const [user, setuser] = useState(null);
@@ -26,7 +27,7 @@ function Admin_dashboard() {
       try {
         const token = localStorage.getItem("token");
 
-        await axios.get("http://localhost:3003/users/admin", {
+        await api.get("/users/admin", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -43,7 +44,7 @@ function Admin_dashboard() {
     try {
       const token = localStorage.getItem("token");
 
-      await axios.post(
+      await api.post(
         "http://localhost:3003/logout",
         {},
         {
