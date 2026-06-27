@@ -45,7 +45,7 @@ function Admin_dashboard() {
       const token = localStorage.getItem("token");
 
       await api.post(
-        "http://localhost:3003/logout",
+        "/logout",
         {},
         {
           headers: {
