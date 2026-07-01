@@ -42,7 +42,7 @@ import React, { useState } from "react";
       } 
         catch (error) {
         console.log(error);
-        console.log(import.meta.env.VITE_API_URL);
+     
         setError(
           error.response?.data?.message ||
           "Login Failed"
